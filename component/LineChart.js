@@ -1,16 +1,20 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
-const LineChart = ({ chartData }) => {
+const LineChart = ({ chartData, lat, lon }) => {
   return (
-    <div className=" ">
-      <h2 style={{ textAlign: "center" }}>Temperature Chart</h2>
+    <div className="">
       <Line
         data={chartData}
         options={{
           plugins: {
             title: {
               display: true,
-              text: "Temperature 48 Hours ",
+              text: "Temperature and Wind Speed  48 Hours ",
+              position: "top",
+            },
+            subtitle: {
+              display: true,
+              text: `lat : ${lat} , lon : ${lon}`,
             },
             legend: {
               display: true,
@@ -19,10 +23,11 @@ const LineChart = ({ chartData }) => {
           plugins2: {
             title: {
               display: true,
-              text: "Temperature 48 Hours ",
+              text: "Wind Speed 48 Hours ",
+              position: "left",
             },
             legend: {
-              display: false,
+              display: true,
             },
           },
           scales: {
@@ -49,7 +54,7 @@ const LineChart = ({ chartData }) => {
               title: {
                 color: "green",
                 display: true,
-                text: "Wind Speed miles/hour",
+                text: "Wind Speed mph",
               },
               display: true,
               position: "right",

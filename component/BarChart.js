@@ -1,16 +1,19 @@
 import React from "react";
 import { Bar } from "react-chartjs-2";
-const BarChart = ({ chartData }) => {
+const BarChart = ({ chartData, lat, lon }) => {
   return (
     <div className="">
-      <h2 style={{ textAlign: "center" }}>Temperature Chart</h2>
       <Bar
         data={chartData}
         options={{
           plugins: {
             title: {
               display: true,
-              text: "Temperature 48 Hours ",
+              text: "Temperature and Wind Speed  48 Hours  ",
+            },
+            subtitle: {
+              display: true,
+              text: `lat : ${lat} , lon : ${lon}`,
             },
             legend: {
               display: true,
